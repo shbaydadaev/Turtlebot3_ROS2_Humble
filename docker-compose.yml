@@ -1,0 +1,38 @@
+version: "3.9"
+services:
+  ros2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: turtlebot3
+    restart: always
+    cap_add:
+      - SYS_NICE
+    ulimits:
+      rtprio: 99
+      rttime: -1
+      memlock: 8428281856
+    network_mode: host
+    # ports:
+    #   - "11345:11345"  # ROS bridge port
+    environment:
+      - DISPLAY=host.docker.internal:0.0
+      - QT_X11_NO_MITSHM=1
+      - ROS_DOMAIN_ID=30
+      - TURTLEBOT3_MODEL=burger
+      - FASTRTPS_DEFAULT_PROFILES_FILE=/workspace/fastdds.xml
+      - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+      - XAUTHORITY=/tmp/.docker.xauth
+    volumes:
+      - /dev:/dev
+      - .:/workspace
+      #- ./workspace:/workspace
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
+    # devices:
+    #   - "/dev/ttyUSB0:/dev/ttyUSB0
+    privileged: true
+    stdin_open: true
+    tty: true
+    command: bash
+  
