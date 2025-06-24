@@ -55,7 +55,7 @@ cd Turtlebot3_ROS2_Humble
 **2. Make the install script executable and run it:**
 
 ```bash
-chmod +x install_ros2_humble.sh
+sudo chmod +x install_ros2_humble.sh
 ./install_ros2_humble.sh
 ```
 
