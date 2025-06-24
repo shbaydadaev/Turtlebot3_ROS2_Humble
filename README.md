@@ -26,3 +26,7 @@ A quick-start guide and installation scripts for setting up [TurtleBot3](https:/
 ```bash
 git clone https://github.com/shbaydadaev/Turtlebot3_ROS2_Humble.git
 cd Turtlebot3_ROS2_Humble
+
+##Make the install script executable and run it:
+chmod +x install_ros2_humble.sh
+./install_ros2_humble.sh
