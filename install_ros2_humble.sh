@@ -53,6 +53,7 @@ sudo apt install -y python3-colcon-common-extensions \
                     x11-apps \
                     iputils-ping \
                     ros-${name_ros_version}-gazebo-* \
+                    ros-${name_ros_version}-rvi \
                     ros-${name_ros_version}-cartographer \
                     ros-${name_ros_version}-cartographer-ros \
                     ros-${name_ros_version}-navigation2 \
@@ -95,11 +96,8 @@ echo "export TURTLEBOT3_MODEL=burger" >> ~/.bashrc
 echo "export ROS_DOMAIN_ID=30" >> ~/.bashrc
 echo "export RMW_IMPLEMENTATION=rmw_fastrtps_cpp" >> ~/.bashrc
 echo "source /opt/ros/$name_ros_version/setup.bash" >> ~/.bashrc
-echo "source \$HOME/$name_colcon_workspace/install/setup.bash" >> ~/.bashrc
+echo "source ~/$name_colcon_workspace/install/setup.bash" >> ~/.bashrc
 echo "source /usr/share/gazebo/setup.sh" >> ~/.bashrc
-
-# DISPLAY Variables
-echo 'export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk "{print \$2}"):0' >> ~/.bashrc
 
 echo "[✅ ROS source setup!]"
 echo "[✅ ROS 2 Humble Installation Complete!]"
