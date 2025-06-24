@@ -1,4 +1,4 @@
-﻿# TurtleBot3_ROS2_Humble
+﻿# TurtleBot3_ROS2_Humble (Editing...)
 
 A quick-start guide and installation scripts for setting up [TurtleBot3](https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/) on **ROS 2 Humble Hawksbill** (Ubuntu 22.04).
 
@@ -33,11 +33,22 @@ cd Turtlebot3_ROS2_Humble
 chmod +x install_ros2_humble.sh
 ./install_ros2_humble.sh
 ```
+
+---
+
 ## ⚡ Installation (using Docker)
-**3. Source your environment (or open a new terminal):**
+**1. Clone this repository:**
 ```bash
-source ~/.bashrc
+git clone https://github.com/shbaydadaev/Turtlebot3_ROS2_Humble.git
+cd Turtlebot3_ROS2_Humble
 ```
+
+**2. Build the Docker image:**
+```bash
+docker compose up --build 
+```
+
+---
 
 ## 📦 Useful Aliases (added to .bashrc)
 - cw : Go to colcon workspace
@@ -46,23 +57,27 @@ source ~/.bashrc
 - eb : Edit .bashrc
 - sb : Source .bashrc
 
+---
+
 ## 🛠️ Additional Notes
 - **TURTLEBOT3_MODEL=burger** (If you are using waffle, change it to **waffle** )
 - **ROS_DOMAIN_ID=30** (make sure you are using the same domain as your robot)
 - **RMW_IMPLEMENTATION=rmw_fastrtps_cpp** (use the same RMW)
 - For simulation and Gazebo, make sure you have a working graphical environment (e.g. GWSL)
 
+---
+
 ## 📚 References
 - [TurtleBot3 e-Manual](https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/)
 - [ROS 2 Documentation](https://docs.ros.org/en/humble/index.html)
 - [Docker Official Docs](https://docs.docker.com/)
 
+---
+
 ## ✨ Author
 **Shokhrukh Baydadaev**
 Contributions and issues welcome!
 ```yaml
-
----
 
 If you need **example Dockerfile** or specific environment/run command for real robots, multi-container setups, or simulation, just ask!
 ```
