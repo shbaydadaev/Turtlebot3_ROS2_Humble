@@ -52,10 +52,6 @@ sudo apt install -y python3-colcon-common-extensions \
                     ros-${name_ros_version}-navigation2 \
                     ros-${name_ros_version}-nav2-bringup
 
-echo "[Initialize rosdep]"
-sudo rosdep init || true
-rosdep update
-
 echo "[Create and build the colcon workspace]"
 mkdir -p $HOME/$name_colcon_workspace/src
 cd $HOME/$name_colcon_workspace/src

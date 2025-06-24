@@ -28,7 +28,13 @@ Launch Ubuntu from the Start menu and set your Linux username/password.
 
 ```powershell
 wsl --list --verbose
-wsl --set-version <distro_name> 2
+wsl --set-default <distro_name>
+```
+
+- Run WSL2 using PowerShell or Command Prompt or Windows Start Menu >>> type the name of your Linux distro (e.g., "Ubuntu-22.04") 
+
+```powershell
+wsl -d Ubuntu-22.04
 ```
 
 - Launch Ubuntu from the Start menu and set your Linux username/password.
