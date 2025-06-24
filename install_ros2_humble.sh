@@ -83,6 +83,7 @@ echo "[Setup user environment]"
 } >> ~/.bashrc
 echo 'export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk "{print \$2}"):0' >> ~/.bashrc
 export DISPLAY=host.docker.internal:0.0
-source ~/.bashrc
 
+source ~/.bashrc
+echo "[✅ ROS source setup!]"
 echo "[✅ ROS 2 Humble Installation Complete!]"
