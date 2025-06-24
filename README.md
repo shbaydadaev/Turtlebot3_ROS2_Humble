@@ -20,7 +20,7 @@ A quick-start guide and installation scripts for setting up [TurtleBot3](https:/
 
 ---
 
-## ⚡ Installation
+## ⚡ Installation (Shell)
 
 **1. Clone this repository:**
 ```bash
@@ -45,3 +45,13 @@ source ~/.bashrc
 - cb : Build workspace
 - eb : Edit .bashrc
 - sb : Source .bashrc
+
+## 🛠️ Additional Notes
+- Default >>> TURTLEBOT3_MODEL=burger (If you use waffle change it into #waffle )
+- ROS 2 Domain ID: 30
+- RMW Implementation: rmw_fastrtps_cpp
+- For simulation and Gazebo, make sure you have a working graphics environment
+
+## 📚 References
+- [TurtleBot3 e-Manual](https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/)
+- [ROS 2 Documentation](https://docs.ros.org/en/humble/index.html)
