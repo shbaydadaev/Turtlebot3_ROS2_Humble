@@ -47,10 +47,10 @@ source ~/.bashrc
 - sb : Source .bashrc
 
 ## 🛠️ Additional Notes
-- Default >>> TURTLEBOT3_MODEL=burger (If you use waffle change it into #waffle )
-- ROS 2 Domain ID: 30
-- RMW Implementation: rmw_fastrtps_cpp
-- For simulation and Gazebo, make sure you have a working graphics environment
+- Default >>> TURTLEBOT3_MODEL=burger (If you are using waffle, change it to **waffle** )
+- ROS_DOMAIN_ID=30 (make sure you are using the same domain as your robot)
+- RMW_IMPLEMENTATION=rmw_fastrtps_cpp (use the same RMW)
+- For simulation and Gazebo, make sure you have a working graphical environment (e.g. GWSL)
 
 ## 📚 References
 - [TurtleBot3 e-Manual](https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/)
