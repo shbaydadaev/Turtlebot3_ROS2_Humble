@@ -12,7 +12,7 @@ A quick-start guide and installation scripts for setting up [TurtleBot3](https:/
 
 ---
 
-## 🖥️ Requirements
+## ⚡ Requirements
 
 - Ubuntu 22.04 (Jammy Jellyfish)
 - Internet connection
@@ -20,7 +20,7 @@ A quick-start guide and installation scripts for setting up [TurtleBot3](https:/
 
 ---
 
-## ⚡ Installation (using Shell)
+## 🖥️ Installation (using Shell)
 
 **1. Clone this repository:**
 ```bash
@@ -36,7 +36,7 @@ chmod +x install_ros2_humble.sh
 
 ---
 
-## ⚡ Installation (using Docker)
+## 🐳 Installation (using Docker)
 **1. Clone this repository:**
 ```bash
 git clone https://github.com/shbaydadaev/Turtlebot3_ROS2_Humble.git

@@ -85,6 +85,8 @@ echo "[Setup user environment]"
     echo "export ROS_DOMAIN_ID=30"
     echo "export RMW_IMPLEMENTATION=rmw_fastrtps_cpp"
 } >> ~/.bashrc
+echo 'export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk "{print \$2}"):0' >> ~/.bashrc
+export DISPLAY=host.docker.internal:0.0
 source ~/.bashrc
 
 echo "[✅ ROS 2 Humble Installation Complete!]"
