@@ -16,17 +16,13 @@ read
 name_os_version=${name_os_version:="jammy"}
 name_ros_version=${name_ros_version:="humble"}
 name_colcon_workspace=${name_colcon_workspace:="turtlebot3_ws"}
-#export ROS_DISTRO=$name_ros_version
-
-echo "[Update the package lists]"
-sudo apt update -y && sudo apt upgrade -y
 
 echo "[Install prerequisites]"
-sudo apt install -y locales 
+sudo apt update && sudo apt install -y locales 
 sudo locale-gen en_US en_US.UTF-8
 sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 export LANG=en_US.UTF-8
-
+locale 
 sudo apt install -y software-properties-common
 sudo add-apt-repository universe
 
@@ -80,7 +76,7 @@ echo "[Setup user environment]"
     echo "source /opt/ros/$name_ros_version/setup.bash"
     echo "source \$HOME/$name_colcon_workspace/install/setup.bash"
     echo "source /usr/share/gazebo/setup.sh"
-    echo "alias eb='nano ~/.bashrc'"
+    echo "alias nb='nano ~/.bashrc'"
     echo "alias sb='source ~/.bashrc'"
     echo "alias cw='cd ~/$name_colcon_workspace'"
     echo "alias cs='cd ~/$name_colcon_workspace/src'"
@@ -89,6 +85,6 @@ echo "[Setup user environment]"
     echo "export ROS_DOMAIN_ID=30"
     echo "export RMW_IMPLEMENTATION=rmw_fastrtps_cpp"
 } >> ~/.bashrc
-
 source ~/.bashrc
+
 echo "[✅ ROS 2 Humble Installation Complete!]"
