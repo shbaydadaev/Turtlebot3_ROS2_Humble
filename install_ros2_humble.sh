@@ -60,6 +60,8 @@ sudo apt install -y python3-colcon-common-extensions \
 
 # Initialize rosdep
 echo "[Create and build the colcon workspace]"
+sudo rosdep init
+rosdep update
 mkdir -p $HOME/$name_colcon_workspace/src
 cd $HOME/$name_colcon_workspace/src
 
@@ -99,6 +101,5 @@ echo "source /usr/share/gazebo/setup.sh" >> ~/.bashrc
 # DISPLAY Variables
 echo 'export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk "{print \$2}"):0' >> ~/.bashrc
 
-source ~/.bashrc
 echo "[✅ ROS source setup!]"
 echo "[✅ ROS 2 Humble Installation Complete!]"

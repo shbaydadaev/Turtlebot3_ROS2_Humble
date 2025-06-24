@@ -59,6 +59,12 @@ chmod +x install_ros2_humble.sh
 ./install_ros2_humble.sh
 ```
 
+**3. ✅ Installation complete! Please run:**
+
+```bash
+source ~/.bashrc
+```
+
 ---
 
 ## 🐳 Installation (using Docker)
