@@ -32,7 +32,6 @@ wsl --set-version <distro_name> 2
 ```
 
 - Launch Ubuntu from the Start menu and set your Linux username/password.
-Ubuntu 22.04 (Jammy Jellyfish)
 - Internet connection
 - Basic familiarity with terminal commands
 
@@ -78,7 +77,7 @@ docker compose up --build
 - cw : Go to colcon workspace
 - cs : Go to src folder in workspace
 - cb : Build workspace
-- eb : Edit .bashrc
+- nb : Edit .bashrc using nano editor
 - sb : Source .bashrc
 
 ---
