@@ -53,7 +53,6 @@ sudo apt install -y python3-colcon-common-extensions \
                     x11-apps \
                     iputils-ping \
                     ros-${name_ros_version}-gazebo-* \
-                    ros-${name_ros_version}-rvi \
                     ros-${name_ros_version}-cartographer \
                     ros-${name_ros_version}-cartographer-ros \
                     ros-${name_ros_version}-navigation2 \
