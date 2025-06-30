@@ -15,34 +15,7 @@ A quick-start guide and installation scripts for setting up [TurtleBot3](https:/
 ## ⚡ Requirements
 
 - Make sure you’re running the latest Windows 11 with all updates. (Open Settings → Windows Update → Check for updates)
-- WSL2 (Windows Subsystem for Linux v2) >>> Open PowerShell as Administrator and run
-- Install Ubuntu 22.04 from the Microsoft Store or with:
-
-```powershell
-wsl --install -d Ubuntu-22.04
-```
-
-Launch Ubuntu from the Start menu and set your Linux username/password.
-
-- If you already have WSL, ensure it’s version 2 and you can set the default version:
-
-```powershell
-wsl --list --verbose
-wsl --set-default Ubuntu-22.04
-```
-
-- Before run WSL, go to **WSL Settings** and change the network mode (Windows Start Meny → WSL Settings → Networking → Networking mode > change to Mirrored (Default - Nat))
-- Run WSL2 using PowerShell or Command Prompt or Windows Start Menu >>> type the name of your Linux distro (e.g., "Ubuntu-22.04") 
-
-```powershell
-wsl -d Ubuntu-22.04
-```
-
-- Launch Ubuntu from the Start menu and set your Linux username/password.
-- Internet connection
-- Basic familiarity with terminal commands
-
----
+- 
 
 ## 🖥️ Installation (using Shell)
 
@@ -64,23 +37,6 @@ sudo chmod +x install_ros2_humble.sh
 
 ```bash
 source ~/.bashrc
-```
-
----
-
-## 🐳 Installation (using Docker)
-
-**1. Clone this repository:**
-
-```bash
-git clone https://github.com/shbaydadaev/Turtlebot3_ROS2_Humble.git
-cd Turtlebot3_ROS2_Humble
-```
-
-**2. Build the Docker image:**
-
-```bash
-docker compose up --build 
 ```
 
 ---

@@ -14,7 +14,8 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     net-tools \
     x11-apps \
     iputils-ping \
-    ros-${ROS_DISTRO}-gazebo-ros-pkgs \
+    ros-${ROS_DISTRO}-gazebo-* \
+    ros-${ROS_DISTRO}-rqt-* \
     ros-${ROS_DISTRO}-cartographer \
     ros-${ROS_DISTRO}-cartographer-ros \
     ros-${ROS_DISTRO}-navigation2 \

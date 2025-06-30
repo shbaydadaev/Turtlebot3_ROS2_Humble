@@ -93,7 +93,7 @@ echo "alias cb='cd ~/$name_colcon_workspace && colcon build'" >> ~/.bashrc
 
 # Environment Setup
 echo "export TURTLEBOT3_MODEL=burger" >> ~/.bashrc
-echo "export ROS_DOMAIN_ID=30" >> ~/.bashrc
+echo "export ROS_DOMAIN_ID=30" >> ~/.bashrc # Change Domain ID to avoid conflicts with other ROS 2 installations 
 echo "export RMW_IMPLEMENTATION=rmw_fastrtps_cpp" >> ~/.bashrc
 echo "source /opt/ros/$name_ros_version/setup.bash" >> ~/.bashrc
 echo "source ~/$name_colcon_workspace/install/setup.bash" >> ~/.bashrc
