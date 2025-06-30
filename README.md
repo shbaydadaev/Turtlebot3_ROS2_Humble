@@ -14,8 +14,13 @@ A quick-start guide and installation scripts for setting up [TurtleBot3](https:/
 
 ## ⚡ Requirements
 
-- Make sure you’re running the latest Windows 11 with all updates. (Open Settings → Windows Update → Check for updates)
-- 
+**Before starting, make sure your system meets the following requirements:**
+
+- Ubuntu 22.04 (Desktop version recommended)
+- Works on physical machine or Virtual Machine (e.g., VirtualBox or VMware)
+- At least 8 GB RAM (16 GB recommended for better performance) and at least 50 GB of free disk space
+- Internet connection
+- Git (Install using: **sudo apt install git**)
 
 ## 🖥️ Installation ROS2 for PC
 
@@ -75,8 +80,3 @@ Now you're ready to start using TurtleBot3 with ROS 2!
 
 **Shokhrukh Baydadaev**
 Contributions and issues welcome!
-
-```yaml
-
-If you need **example Dockerfile** or specific environment/run command for real robots, multi-container setups, or simulation, just ask!
-```
