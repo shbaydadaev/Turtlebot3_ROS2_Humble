@@ -1,6 +1,6 @@
 ﻿# TurtleBot3_ROS2_Humble (Editing...)
 
-A quick-start guide and installation scripts for setting up [TurtleBot3](https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/) on **ROS 2 Humble Hawksbill** (Ubuntu 22.04).
+A quick-start guide and installation scripts for setting up [TurtleBot3](https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/) on **ROS 2 Humble Hawksbill** (Ubuntu 22.04 or Virtual Machine).
 
 ---
 
@@ -17,11 +17,12 @@ A quick-start guide and installation scripts for setting up [TurtleBot3](https:/
 - Make sure you’re running the latest Windows 11 with all updates. (Open Settings → Windows Update → Check for updates)
 - 
 
-## 🖥️ Installation (using Shell)
+## 🖥️ Installation ROS2 for PC
 
-**1. Clone this repository:**
+**1. 🔁 Clone this repository (install git!!!):**
 
 ```bash
+sudo apt install git
 git clone https://github.com/shbaydadaev/Turtlebot3_ROS2_Humble.git
 cd Turtlebot3_ROS2_Humble
 ```
@@ -38,6 +39,8 @@ sudo chmod +x install_ros2_humble.sh
 ```bash
 source ~/.bashrc
 ```
+
+Now you're ready to start using TurtleBot3 with ROS 2!
 
 ---
 
