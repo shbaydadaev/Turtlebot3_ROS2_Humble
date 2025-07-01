@@ -30,11 +30,11 @@ docker exec -it [docker_id] bash
 
 ## 📦 Useful Aliases (added to .bashrc)
 
-- cw : Go to colcon workspace
-- cs : Go to src folder in workspace
-- cb : Build workspace
-- nb : Edit .bashrc using nano editor
-- sb : Source .bashrc
+- **cw** : Go to workspace → `cd ~/turtlebot3_ws`
+- **cs** : Go to src folder in workspace → `cd ~/turtlebot3_ws/src`
+- **cb** : Build workspace → `colcon build --symlink-install`
+- **nb** : Edit .bashrc → `nano ~/.bashrc`
+- **sb** : Source .bashrc → `source ~/.bashrc`
 
 ---
 

@@ -4,6 +4,7 @@
 # Modified for ROS 2 by Shokhrukh Baydadaev
 
 echo ""
+echo "Install packages on Raspberry PI for TurtleBot3"
 echo "[Note] Target OS version  >>> Ubuntu 22.04.x (Jammy Jellyfish)"
 echo "[Note] Target ROS version >>> ROS 2 Humble Hawksbill"
 echo "[Note] Colcon workspace   >>> \$HOME/turtlebot3_ws"
@@ -46,22 +47,15 @@ source /opt/ros/${name_ros_version}/setup.bash
 sudo apt install -y python3-colcon-common-extensions \
                     python3-argcomplete \
                     libboost-system-dev \
-                    python3-jinja2 \
                     build-essential \
                     python3-pip \
                     nano \
                     git \
                     python3-colcon-meson \
-                    net-tools \
                     libudev-dev \
-                    libboost-dev libgnutls28-dev openssl libtiff-dev pybind11-dev \
-                    qtbase5-dev libqt5core5a libqt5widgets5 meson cmake \
-                    python3-yaml python3-ply \
-                    libglib2.0-dev libgstreamer-plugins-base1.0-dev \
                     ros-${name_ros_version}-hls-lfcd-lds-driver \
                     ros-${name_ros_version}-turtlebot3-msgs \
-                    ros-${name_ros_version}-dynamixel-sdk \
-                    ros-${name_ros_version}-camera-ros
+                    ros-${name_ros_version}-dynamixel-sdk                 
 
 # Initialize rosdep
 echo "[Create and build the colcon workspace]"
@@ -106,16 +100,5 @@ sudo cp `ros2 pkg prefix turtlebot3_bringup`/share/turtlebot3_bringup/script/99-
 sudo udevadm control --reload-rules
 sudo udevadm trigger
 
-# Build and Install libcamera
-echo "[Installation Raspberry Pi Camera]"
-cd && git clone -b humble https://github.com/raspberrypi/libcamera.git
-cd libcamera
-meson setup build --buildtype=release -Dpipelines=rpi/vc4,rpi/pisp -Dipas=rpi/vc4,rpi/pisp -Dv4l2=true -Dgstreamer=enabled -Dtest=false -Dlc-compliance=disabled -Dcam=disabled -Dqcam=disabled -Ddocumentation=disabled -Dpycamera=enabled
-ninja -C build
-sudo ninja -C build install
-sudo ldconfig
 echo "[ROS source setup: <source ~/.bashrc>]"
-echo "[Launch the camera node: <ros2 launch turtlebot3_bringup camera.launch.py>]"
-echo "[View Camera Input: <rqt_image_view>]"
-
 echo "[✅ ROS 2 Humble Installation Complete!]"

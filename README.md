@@ -61,9 +61,9 @@ git clone https://github.com/shbaydadaev/Turtlebot3_ROS2_Humble.git
 cd Turtlebot3_ROS2_Humble
 ```
 
-**2. ⚙️ Make the install script executable and run it:**
+💡 **Note:** On the TurtleBot3, you should use `install_turtlebot3.sh` — not `install_ros2_humble.sh`.
 
-|💡 On the TurtleBot3, you should use the install_turtlebot3.sh script — not install_ros2_humble.sh.
+**2. ⚙️ Make the install script executable and run it:**
 
 ```bash
 sudo chmod +x install_turtlebot3.sh
@@ -80,13 +80,35 @@ After installation, apply your environment settings:
 source ~/.bashrc
 ```
 
-**4. (Optional) 📷 Check the Camera Node:**
+**4. ⚙️ OpenCR Setup (Firmware Flashing):**
+
+```bash
+sudo chmod +x install_OPENCR_turtlebot3.sh
+./install_OPENCR_turtlebot3.sh
+```
+
+This step flashes the OpenCR board with the correct firmware for ROS 2. Ensure your OpenCR is connected via USB.
+
+**5. (Optional) 📷 Installation Camera Node:**
 
 If your TurtleBot3 is equipped with a camera and you'd like to verify it's working, run
 
 ```bash
+sudo chmod +x install_camera_turtlebot3.sh
+./install_camera_turtlebot3.sh
+```
+
+To verify the camera:
+
+```bash
 ros2 launch turtlebot3_bringup camera.launch.py
 rqt_image_view
+```
+
+🔁 **Reminder:** After running each install script (OpenCR, camera), run:
+
+```bash
+source ~/.bashrc
 ```
 
 You’re now ready to use TurtleBot3 with ROS 2!
@@ -95,17 +117,17 @@ You’re now ready to use TurtleBot3 with ROS 2!
 
 ## 📦 Useful Aliases (added to .bashrc)
 
-- cw : Go to colcon workspace
-- cs : Go to src folder in workspace
-- cb : Build workspace
-- nb : Edit .bashrc using nano editor
-- sb : Source .bashrc
+- **cw** : Go to workspace → `cd ~/turtlebot3_ws`
+- **cs** : Go to src folder in workspace → `cd ~/turtlebot3_ws/src`
+- **cb** : Build workspace → `colcon build --symlink-install`
+- **nb** : Edit .bashrc → `nano ~/.bashrc`
+- **sb** : Source .bashrc → `source ~/.bashrc`
 
 ---
 
 ## 🛠️ Additional Notes
 
-- **TURTLEBOT3_MODEL=burger** (If you are using waffle, change it to **waffle** )
+- **TURTLEBOT3_MODEL=burger** (If you are using waffle, change it to `waffle`)
 - **ROS_DOMAIN_ID=30** (make sure you are using the same domain as your robot)
 - **RMW_IMPLEMENTATION=rmw_fastrtps_cpp** (use the same RMW)
 - For simulation and Gazebo, make sure you have a working graphical environment (e.g. install **GWSL** from Microsoft store)
