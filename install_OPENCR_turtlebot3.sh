@@ -4,18 +4,19 @@
 # Modified for ROS 2 by Shokhrukh Baydadaev
 
 echo ""
-echo "Raspberry Pi OpenCR setup for TurtleBot3"
+echo "🚀 Starting OpenCR Firmware Flashing for TurtleBot3 (burger model)"
+echo "⚠️ This will overwrite your OpenCR firmware."
+read -p "Press ENTER to continue or CTRL+C to cancel..."
 
+# Add armhf architecture and install required library
+cd ~
 sudo dpkg --add-architecture armhf  
 sudo apt-get update  
 sudo apt-get install libc6:armhf  
 
+# Set OpenCR environment variables
 export OPENCR_PORT=/dev/ttyACM0  
 export OPENCR_MODEL=burger
-if [ ! -e "$OPENCR_PORT" ]; then
-  echo "❌ OpenCR device not found at $OPENCR_PORT. Make sure it is connected via USB."
-  exit 1
-fi
 rm -rf ./opencr_update.tar.bz2
 
 # Download the firmware and required loader, then extract the file to prepare for upload
