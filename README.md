@@ -22,6 +22,8 @@ A quick-start guide and installation scripts for setting up [TurtleBot3](https:/
 - Internet connection
 - Git (Install using: **sudo apt install git**)
 
+---
+
 ## 🖥️ Installation ROS2 for PC
 
 **1. 🔁 Clone this repository (install git!!!):**
@@ -32,7 +34,7 @@ git clone https://github.com/shbaydadaev/Turtlebot3_ROS2_Humble.git
 cd Turtlebot3_ROS2_Humble
 ```
 
-**2. Make the install script executable and run it:**
+**2. ⚙️ Make the install script executable and run it:**
 
 ```bash
 sudo chmod +x install_ros2_humble.sh
@@ -45,7 +47,42 @@ sudo chmod +x install_ros2_humble.sh
 source ~/.bashrc
 ```
 
-Now you're ready to start using TurtleBot3 with ROS 2!
+---
+
+## 🤖 Installation: ROS 2 on TurtleBot3 (Raspberry Pi)
+
+**1. 🔁 Clone This Repository (Make Sure Git Is Installed):**
+
+```bash
+sudo apt update
+sudo apt install git -y
+sudo apt upgrade
+git clone https://github.com/shbaydadaev/Turtlebot3_ROS2_Humble.git
+cd Turtlebot3_ROS2_Humble
+```
+
+**2. ⚙️ Make the install script executable and run it:**
+
+|💡 On the TurtleBot3, you should use the install_turtlebot3.sh script — not install_ros2_humble.sh.
+
+```bash
+sudo chmod +x install_turtlebot3.sh
+./install_turtlebot3.sh
+```
+
+This script will install ROS 2 Humble and TurtleBot3 dependencies on the Raspberry Pi, along with environment setup.
+
+**3. ✅ Installation complete! Please run:**
+
+After installation, apply your environment settings and check the camera node:
+
+```bash
+source ~/.bashrc
+ros2 launch turtlebot3_bringup camera.launch.py
+rqt_image_view
+```
+
+You’re now ready to use TurtleBot3 with ROS 2!
 
 ---
 

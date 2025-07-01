@@ -38,45 +38,48 @@ sudo apt install /tmp/ros2-apt-source.deb
 echo "[ROS 2 & Package Installation]"
 sudo apt update
 sudo apt upgrade -y
-sudo apt install -y ros-${name_ros_version}-desktop
+sudo apt install -y ros-${name_ros_version}-ros-base
 
 # Development Tools & Dependencies
 echo "[Environment setup and development tools]"
 source /opt/ros/${name_ros_version}/setup.bash
 sudo apt install -y python3-colcon-common-extensions \
-                    python3-rosdep \
-                    python3-vcstool \
+                    python3-argcomplete \
+                    libboost-system-dev \
+                    python3-jinja2 \
+                    build-essential \
                     python3-pip \
                     nano \
+                    git \
+                    python3-colcon-meson \
                     net-tools \
-                    x11-apps \
-                    iputils-ping \
-                    ros-${name_ros_version}-gazebo-* \
-                    ros-${name_ros_version}-rqt-* \
-                    ros-${name_ros_version}-cartographer \
-                    ros-${name_ros_version}-cartographer-ros \
-                    ros-${name_ros_version}-navigation2 \
-                    ros-${name_ros_version}-nav2-bringup
+                    libudev-dev \
+                    libboost-dev libgnutls28-dev openssl libtiff-dev pybind11-dev \
+                    qtbase5-dev libqt5core5a libqt5widgets5 meson cmake \
+                    python3-yaml python3-ply \
+                    libglib2.0-dev libgstreamer-plugins-base1.0-dev \
+                    ros-${name_ros_version}-hls-lfcd-lds-driver \
+                    ros-${name_ros_version}-turtlebot3-msgs \
+                    ros-${name_ros_version}-dynamixel-sdk \
+                    ros-${name_ros_version}-camera-ros
 
 # Initialize rosdep
 echo "[Create and build the colcon workspace]"
 sudo rosdep init
 rosdep update
-mkdir -p $HOME/$name_colcon_workspace/src
-cd $HOME/$name_colcon_workspace/src
+mkdir -p ~/$name_colcon_workspace/src
+cd ~/$name_colcon_workspace/src
 
 # Cloning TurtleBot3 repositories
 echo "📥 Cloning TurtleBot3 repositories..."
-git clone -b ${name_ros_version} https://github.com/ROBOTIS-GIT/DynamixelSDK.git 
-git clone -b ${name_ros_version} https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git 
-git clone -b ${name_ros_version} https://github.com/ROBOTIS-GIT/turtlebot3.git 
-git clone -b ${name_ros_version} https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git 
-git clone -b ${name_ros_version} https://github.com/ROBOTIS-GIT/turtlebot3_applications.git 
-git clone -b ${name_ros_version} https://github.com/ROBOTIS-GIT/turtlebot3_applications_msgs.git
+git clone -b humble https://github.com/ROBOTIS-GIT/turtlebot3.git 
+git clone -b humble https://github.com/ROBOTIS-GIT/ld08_driver.git
 
 # building the workspace
 echo "[Build the colcon workspace]"
-cd $HOME/$name_colcon_workspace
+cd ~/$name_colcon_workspace/src/turtlebot3
+rm -r turtlebot3_cartographer turtlebot3_navigation2
+cd ~/turtlebot3_ws/
 colcon build --symlink-install
 
 # Setup rosdep
@@ -94,9 +97,25 @@ echo "alias cb='cd ~/$name_colcon_workspace && colcon build'" >> ~/.bashrc
 echo "export TURTLEBOT3_MODEL=burger" >> ~/.bashrc
 echo "export ROS_DOMAIN_ID=30" >> ~/.bashrc # Change Domain ID to avoid conflicts with other ROS 2 installations 
 echo "export RMW_IMPLEMENTATION=rmw_fastrtps_cpp" >> ~/.bashrc
+echo 'export LDS_MODEL=LDS-02' >> ~/.bashrc
 echo "source /opt/ros/$name_ros_version/setup.bash" >> ~/.bashrc
 echo "source ~/$name_colcon_workspace/install/setup.bash" >> ~/.bashrc
-echo "source /usr/share/gazebo/setup.sh" >> ~/.bashrc
 
-echo "[✅ ROS source setup!]"
+# USB Port Settings for OpenCR
+sudo cp `ros2 pkg prefix turtlebot3_bringup`/share/turtlebot3_bringup/script/99-turtlebot3-cdc.rules /etc/udev/rules.d/
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+
+# Build and Install libcamera
+echo "[Installation Raspberry Pi Camera]"
+cd && git clone -b humble https://github.com/raspberrypi/libcamera.git
+cd libcamera
+meson setup build --buildtype=release -Dpipelines=rpi/vc4,rpi/pisp -Dipas=rpi/vc4,rpi/pisp -Dv4l2=true -Dgstreamer=enabled -Dtest=false -Dlc-compliance=disabled -Dcam=disabled -Dqcam=disabled -Ddocumentation=disabled -Dpycamera=enabled
+ninja -C build
+sudo ninja -C build install
+sudo ldconfig
+echo "[ROS source setup: <source ~/.bashrc>]"
+echo "[Launch the camera node: <ros2 launch turtlebot3_bringup camera.launch.py>]"
+echo "[View Camera Input: <rqt_image_view>]"
+
 echo "[✅ ROS 2 Humble Installation Complete!]"
