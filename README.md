@@ -74,10 +74,17 @@ This script will install ROS 2 Humble and TurtleBot3 dependencies on the Raspber
 
 **3. ✅ Installation complete! Please run:**
 
-After installation, apply your environment settings and check the camera node:
+After installation, apply your environment settings:
 
 ```bash
 source ~/.bashrc
+```
+
+**4. (Optional) 📷 Check the Camera Node:**
+
+If your TurtleBot3 is equipped with a camera and you'd like to verify it's working, run
+
+```bash
 ros2 launch turtlebot3_bringup camera.launch.py
 rqt_image_view
 ```
