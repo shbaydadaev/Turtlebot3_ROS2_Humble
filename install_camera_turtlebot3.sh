@@ -23,7 +23,8 @@ sudo apt install ros-humble-camera-ros
 
 # Build and Install libcamera
 echo "📥 Cloning libcamera repo..."
-cd ~ && git clone -b humble https://github.com/raspberrypi/libcamera.git
+cd ~ 
+git clone https://github.com/raspberrypi/libcamera.git
 cd libcamera
 
 echo "⚙️ Building libcamera..."
