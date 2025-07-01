@@ -12,7 +12,7 @@ sudo apt upgrade -y
 sudo apt install -y python-pip git python3-jinja2 python3-colcon-meson
 sudo apt install -y libboost-dev
 sudo apt install -y libgnutls28-dev openssl libtiff-dev pybind11-dev
-sudo apt install -y qtbase5-dev libqt5core5a libqt5widgets qttools5-dev-tools 
+sudo apt install -y qtbase5-dev libqt5core5a qttools5-dev-tools 
 sudo apt install -y meson cmake
 sudo apt install -y python3-yaml python3-ply
 sudo apt install -y libglib2.0-dev libgstreamer-plugins-base1.0-dev
@@ -31,7 +31,7 @@ git clone https://github.com/raspberrypi/libcamera.git
 # Option B: raspberrypi fork with support for newer camera modules
 # git clone https://github.com/raspberrypi/libcamera.git
 # check out this camera_ros repository
-git clone https://github.com/christianrauch/camera_ros.git
+#git clone https://github.com/christianrauch/camera_ros.git
 
 cd ~/camera_ws/
 rosdep install -y --from-paths src --ignore-src --rosdistro humble --skip-keys=libcamera
