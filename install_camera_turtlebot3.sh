@@ -9,11 +9,14 @@ echo "📸 Raspberry Pi Camera Installation Script for ROS 2 Humble"
 
 sudo apt update
 sudo apt upgrade -y
-sudo apt install -y python3-pip git python3-jinja2 \
-                    libboost-dev libgnutls28-dev openssl libtiff-dev pybind11-dev \
-                    qtbase5-dev libqt5core5a libqt5widgets5 meson cmake \
-                    python3-yaml python3-ply \
-                    libglib2.0-dev libgstreamer-plugins-base1.0-dev
+sudo apt install -y python-pip git python3-jinja2 
+
+sudo apt install -y libboost-dev
+sudo apt install -y libgnutls28-dev openssl libtiff-dev pybind11-dev
+sudo apt install -y qtbase5-dev libqt5core5a libqt5widgets
+sudo apt install -y meson cmake
+sudo apt install -y python3-yaml python3-ply
+sudo apt install -y libglib2.0-dev libgstreamer-plugins-base1.0-dev
 
 # Install ROS camera driver
 sudo apt install ros-humble-camera-ros
@@ -25,7 +28,6 @@ cd libcamera
 
 echo "⚙️ Building libcamera..."
 meson setup build --buildtype=release -Dpipelines=rpi/vc4,rpi/pisp -Dipas=rpi/vc4,rpi/pisp -Dv4l2=true -Dgstreamer=enabled -Dtest=false -Dlc-compliance=disabled -Dcam=disabled -Dqcam=disabled -Ddocumentation=disabled -Dpycamera=enabled
-ninja -C build
 sudo ninja -C build install
 sudo ldconfig
 
