@@ -55,7 +55,8 @@ sudo apt install -y python3-colcon-common-extensions \
                     libudev-dev \
                     ros-${name_ros_version}-hls-lfcd-lds-driver \
                     ros-${name_ros_version}-turtlebot3-msgs \
-                    ros-${name_ros_version}-dynamixel-sdk                 
+                    ros-${name_ros_version}-dynamixel-sdk \
+                    ros-${name_ros_version}-xacro
 
 # Initialize rosdep
 echo "[Create and build the colcon workspace]"

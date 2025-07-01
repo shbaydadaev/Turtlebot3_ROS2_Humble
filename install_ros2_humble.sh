@@ -56,7 +56,11 @@ sudo apt install -y python3-colcon-common-extensions \
                     ros-${name_ros_version}-cartographer \
                     ros-${name_ros_version}-cartographer-ros \
                     ros-${name_ros_version}-navigation2 \
-                    ros-${name_ros_version}-nav2-bringup
+                    ros-${name_ros_version}-nav2-bringup \
+                    ros-${name_ros_version}-xacro \
+                    ros-${name_ros_version}-dynamixel-sdk \
+                    ros-${name_ros_version}-turtlebot3-* \
+                    ros-${name_ros_version}-turtlebot3-msgs \
 
 # Initialize rosdep
 echo "[Create and build the colcon workspace]"
